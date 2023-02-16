@@ -1,6 +1,6 @@
 # Blind Stick (BS01) v0.1
 __________________________________________________________________________________
-  This program is A prototype code.
+  This program is A prototype code.<\n>
   Auther: Maynard Da Costa (junelover) 
   Project: Blind Sitck 
   Code Name: BS01
