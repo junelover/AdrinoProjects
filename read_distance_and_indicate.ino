@@ -2,21 +2,21 @@
 __________________________________________________________________________________
 
   This program is A prototype code.
-  Auther: Maynard Da Costa (junelover) 
+  Author: Maynard Da Costa (junelover) 
   Project: Blind Sitck 
   Code Name: BS01
   Developed on: 16/02/2023
   Last Updated on: 17/02/2023
 
   Objective: The working of this project is Basic, it Uses Less Power resulting in
-             longer use time. It is also efficient in practical use aswell as in 
-             making keep it in buget margin will also helps us to reach out to a
+             longer use time. It is also efficient in practical use as-well as in 
+             making it keep the buget margin. This will also helps us to reach out to a
              large user base.
              
   Working: The blind Stick (BS01) is equiped with a ultrasonic sensor which will
-           recieve an echo of any obsticals in the range of 4 meters. The close 
-           you get to the obsticale the intence haptic feedback you recieve. 
-           if the obstical is in range of: 1 meter it will be maxed out
+           recieve an echo of any obstacles in the range of 4 meters. The close 
+           you get to the obstacle the intence hap-tic feedback you recieve. 
+           if the obstacle is in range of: 1 meter it will be max-ed out
                                            2 meters it will be high
                                            3 meters it will be midium
                                            4 meters it will be low
@@ -27,7 +27,7 @@ ________________________________________________________________________________
 ___________________________________________________________________________________
 */
 
-// defining hardware pins to comunicate with the board
+// defining hardware pins to communicate with the board
 #define trigPin 10
 #define echoPin 13
 #define hapticFeedback 0
@@ -35,7 +35,7 @@ ________________________________________________________________________________
 // float values to set reading sppped and distance.
 float duration, distance;
 
-// constants to use for analogWrite(). This decides the intensity value.
+// constant to use for analogWrite(). This decides the intensive value.
 const int null = 0;
 const int low = 63;
 const int mid = 127;
@@ -45,21 +45,21 @@ const int max = 255;
 
 void setup() {                      // initial setup before starting the actual program
   
-  // Setting Hardware pin Constants and init pin setup
+  // Setting Hardware pin Constant and initial pin setup
   Serial.begin (9600);              // signal pin to read signal 
   pinMode(trigPin, OUTPUT);         // pin used to send ultrasonic signal
   pinMode(echoPin, INPUT);          // pin used to recieve ultrasonic signal 
-  pinMode(hapticFeedback, OUTPUT);  // run haptic feedback
+  pinMode(hapticFeedback, OUTPUT);  // run hap-tic feedback
 
 }
 
-// This function takes in required params to create a pulsing effect.
-// Params:
-//        pin: it is uint8_t type variable representing hardware pin on the adrino board
+// This function takes in required parameters to create a pulsing effect.
+// Parameters:
+//        pin: it is uint8_t type variable representing hardware pin on the Arduino board.
 //        pulseDelay: it is an unsigned interger that cannot hold negetive signed interger
-//                    value. It is usedto set delay (in Microseconds) before proceding
+//                    value. It is used to set delay (in Microseconds) before proceding.
 //        value: it is an integer ranging from 0-255. It is used to set pulse intensity.
-//        pulseActive: it is a boolean variable Activating the pulse 
+//        pulseActive: it is a boolean variable Activating the pulse.
 //
 void pulseFeedback(uint8_t pin, unsigned int pulseDelay, int value, bool pulseActive){
   while(pulseActive == true){
@@ -86,9 +86,9 @@ void loop() {                        // Actual program running in loop
   // Use 343 metres per second as speed of sound
   distance = (duration / 2) * 0.0343;
   
-  // Processing resaults to determine the coresponding type of feedback to the distance of the obstical. 
+  // Processing resaults to determine the corresponding type of feedback to the distance of the obstacle. 
   Serial.print("Distance is: ");
-  if (distance <= 2) {               // if distance is less then 2cm. This will prevent the stick from functioning. Randering a maxed out constant feedback.
+  if (distance <= 2) {               // if distance is less then 2cm. This will prevent the stick from functioning. Randering a max-ed out constant feedback.
       Serial.println("Too close to opperate");        // printing the actual distance in cm to the console.
       pulseFeedback(hapticFeedback, 1, max, true);    // setting feeedback to max.
       delay(25);                                      // setting delay to 25 milliseconds before proceding.
