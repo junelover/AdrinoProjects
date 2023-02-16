@@ -28,9 +28,9 @@ ________________________________________________________________________________
 */
 
 // defining hardware pins to communicate with the board
-#define trigPin 10
-#define echoPin 13
-#define hapticFeedback 0
+#define trigPin 10          // digital pin 10 (d10)
+#define echoPin 13          // digital pin 13 (d13)
+#define hapticFeedback 0    // analog pin 0 (a0)
 
 // float values to set reading sppped and distance.
 float duration, distance;
